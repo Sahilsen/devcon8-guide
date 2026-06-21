@@ -7,11 +7,21 @@
 <meta name="description" content="The unofficial attendee field guide for Devcon 8, Mumbai, India. Nov 3 to 6, 2026 at Jio World Convention Centre, BKC. Hotels, transit, food by diet, SIM and money, water and health, things to do, Web3-in-India, and street smarts. Every place links to Google Maps." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css?v=12" />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600;700&family=Mukta:wght@800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css?v=17" />
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
+
+<!-- water-ripple filter for the Marathi title shadow -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <filter id="water">
+    <feTurbulence type="fractalNoise" baseFrequency="0.011 0.035" numOctaves="2" seed="4" result="n">
+      <animate attributeName="baseFrequency" dur="7s" values="0.011 0.03;0.015 0.05;0.011 0.03" repeatCount="indefinite"/>
+    </feTurbulence>
+    <feDisplacementMap in="SourceGraphic" in2="n" scale="13" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+</svg>
 
 <!-- NAV -->
 <header class="nav">
@@ -67,7 +77,7 @@
   <span class="shape s-tri" aria-hidden="true"></span>
   <div class="wrap">
     <div class="hero-kicker mono"><span class="dotx"></span> Ethereum Foundation <span class="dotx"></span> Nov 3 to 6, 2026 <span class="dotx"></span> Jio World Convention Centre, BKC</div>
-    <h1>Mumbai.<span class="sub">A field guide for everyone landing for <em>Devcon&nbsp;8</em>, from down the road or across the planet.</span></h1>
+    <h1><span class="city"><span class="echo" aria-hidden="true">मुंबई</span><span class="latin">Mumbai.</span></span><span class="sub">A field guide for everyone landing for <em>Devcon&nbsp;8</em>, from down the road or across the planet.</span></h1>
     <p class="hero-lede">How to get to the venue, where to sleep, what to eat on any diet, what not to drink, and how to read Maximum City without the rookie mistakes. Every place here links straight to Google Maps.</p>
   </div>
   <div class="ticker" aria-hidden="true">
