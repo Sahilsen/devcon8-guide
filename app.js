@@ -62,6 +62,54 @@ navLinks?.addEventListener('click', (e) => {
   }
 });
 
+// --- Theme toggle (shared by navbar and accessibility panel) ---
+(function themeControls() {
+  const root = document.documentElement;
+  const store = window.localStorage;
+  const get = (k, d) => { try { return store.getItem(k) ?? d; } catch { return d; } };
+  const set = (k, v) => { try { store.setItem(k, v); } catch {} };
+  const remove = (k) => { try { store.removeItem(k); } catch {} };
+
+  function currentTheme() {
+    return root.dataset.theme === 'dark' ? 'dark' : 'light';
+  }
+
+  function applyTheme(theme, persist = true) {
+    const next = theme === 'dark' ? 'dark' : 'light';
+    root.dataset.theme = next;
+    if (persist) set('guide-theme', next);
+
+    document.querySelectorAll('[data-theme-choice]').forEach((button) => {
+      button.setAttribute('aria-pressed', String(button.dataset.themeChoice === next));
+    });
+
+    document.querySelectorAll('[data-theme-toggle]').forEach((button) => {
+      const isDark = next === 'dark';
+      const label = isDark ? 'Switch to light mode' : 'Switch to dark mode';
+      button.setAttribute('aria-pressed', String(isDark));
+      button.setAttribute('aria-label', label);
+      button.title = label;
+      const icon = button.querySelector('.theme-icon');
+      if (icon) icon.textContent = isDark ? '☀' : '☾';
+    });
+  }
+
+  document.querySelectorAll('[data-theme-choice]').forEach((button) => {
+    button.addEventListener('click', () => applyTheme(button.dataset.themeChoice));
+  });
+
+  document.querySelectorAll('[data-theme-toggle]').forEach((button) => {
+    button.addEventListener('click', () => applyTheme(currentTheme() === 'dark' ? 'light' : 'dark'));
+  });
+
+  window.resetGuideTheme = () => {
+    remove('guide-theme');
+    applyTheme('light', false);
+  };
+
+  applyTheme(get('guide-theme', 'light'), false);
+})();
+
 // --- Accessibility toolbar (persisted preferences) ---
 (function a11y() {
   const fab = document.getElementById('a11yFab');
@@ -108,6 +156,7 @@ navLinks?.addEventListener('click', (e) => {
   document.getElementById('a11yReset')?.addEventListener('click', () => {
     ['a11y-size', 'a11y-hc', 'a11y-ul-links', 'a11y-reduce-motion'].forEach((k) => { try { store.removeItem(k); } catch {} });
     applySize('1'); ['hc', 'ul-links', 'reduce-motion'].forEach((c) => applyToggle(c, false));
+    window.resetGuideTheme?.();
   });
 
   // restore saved prefs (default reduce-motion to the OS setting if unset)
