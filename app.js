@@ -380,3 +380,12 @@ window.addEventListener('beforeprint', () => {
 window.addEventListener('afterprint', () => {
   document.querySelectorAll('.faq-item').forEach((d) => { d.open = !!d.dataset.wasOpen; });
 });
+
+// --- Food scroller arrows ---
+(function foodScroll() {
+  const grid = document.getElementById('foodGrid');
+  if (!grid) return;
+  const step = () => Math.max(grid.clientWidth * 0.8, 336);
+  document.getElementById('foodPrev')?.addEventListener('click', () => grid.scrollBy({ left: -step(), behavior: 'smooth' }));
+  document.getElementById('foodNext')?.addEventListener('click', () => grid.scrollBy({ left: step(), behavior: 'smooth' }));
+})();

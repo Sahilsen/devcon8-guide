@@ -31,7 +31,7 @@
   } catch {}
 })();
 </script>
-<link rel="stylesheet" href="styles.css?v=24" />
+<link rel="stylesheet" href="styles.css?v=25" />
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -427,6 +427,11 @@
     </div>
     <div class="food-empty" id="foodEmpty"><p>Nothing matches this filter in the guide yet. Ask your hotel for a recommendation, or try a nearby filter like dairy-free.</p></div>
 
+    <div class="scroll-cues">
+      <span class="hintx">Scroll for more</span>
+      <button class="scroll-btn" id="foodPrev" type="button" aria-label="Scroll food list back">←</button>
+      <button class="scroll-btn" id="foodNext" type="button" aria-label="Scroll food list forward">→</button>
+    </div>
     <div class="food-grid" id="foodGrid">
 
       <div class="food" data-diet="veg vegan df jain">
@@ -658,6 +663,104 @@
         <div class="where">Mumbai, Parsi-style ice cream parlour</div>
         <p>A beloved old-school parlour known for rich, dense ice creams in flavours like sitaphal (custard apple) and mango. A Mumbai dessert institution.</p>
         <div class="tags"><span class="tag veg">Vegetarian</span></div>
+        <div class="foot" style="margin-top:12px"><span class="heat l1"><span class="hl">Spice</span><i></i><i></i><i></i></span></div>
+      </div>
+      <div class="food" data-diet="veg jain">
+        <div class="top"><h4>Prakash</h4><a class="maplink" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=Prakash+Shakahari+Upahaar+Kendra+Dadar+Mumbai">Map ↗</a></div>
+        <div class="where">Dadar, Maharashtrian</div>
+        <p>Piyush, sabudana khichdi, and thalipeeth done right since 1939. An old Dadar institution, quick and cheap.</p>
+        <div class="tags"><span class="tag veg">Vegetarian</span><span class="tag jain">Jain friendly</span></div>
+        <div class="foot" style="margin-top:12px"><span class="heat l2"><span class="hl">Spice</span><i></i><i></i><i></i></span></div>
+      </div>
+      <div class="food" data-diet="veg">
+        <div class="top"><h4>Aaswad</h4><a class="maplink" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=Aaswad+Dadar+Mumbai">Map ↗</a></div>
+        <div class="where">Dadar, Maharashtrian</div>
+        <p>Home of the misal pav that won a world's-tastiest-vegetarian-dish award. Order solkadhi alongside to cool down.</p>
+        <div class="tags"><span class="tag veg">Vegetarian</span></div>
+        <div class="foot" style="margin-top:12px"><span class="heat l3"><span class="hl">Spice</span><i></i><i></i><i></i></span></div>
+      </div>
+      <div class="food" data-diet="veg jain">
+        <div class="top"><h4>Guru Kripa</h4><a class="maplink" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=Guru+Kripa+Sion+Mumbai">Map ↗</a></div>
+        <div class="where">Sion, snacks and chaat</div>
+        <p>The samosa-chole so famous that film studios order it in bulk. Big menu of chaat and sweets.</p>
+        <div class="tags"><span class="tag veg">Vegetarian</span><span class="tag jain">Jain on request</span></div>
+        <div class="foot" style="margin-top:12px"><span class="heat l2"><span class="hl">Spice</span><i></i><i></i><i></i></span></div>
+      </div>
+      <div class="food" data-diet="veg jain">
+        <div class="top"><h4>Kailash Parbat</h4><a class="maplink" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=Kailash+Parbat+Colaba+Mumbai">Map ↗</a></div>
+        <div class="where">Colaba, Sindhi chaat</div>
+        <p>A century-old institution for ragda pattice, chaat, and thalis. Jain versions are routine here.</p>
+        <div class="tags"><span class="tag veg">Vegetarian</span><span class="tag jain">Jain on request</span></div>
+        <div class="foot" style="margin-top:12px"><span class="heat l2"><span class="hl">Spice</span><i></i><i></i><i></i></span></div>
+      </div>
+      <div class="food" data-diet="veg vegan df">
+        <div class="top"><h4>Burma Burma</h4><a class="maplink" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=Burma+Burma+Fort+Mumbai">Map ↗</a></div>
+        <div class="where">Fort, Burmese</div>
+        <p>Refined all-veg Burmese: khow suey, tea-leaf salad, and a serious tea bar. One of the best vegan menus in the city.</p>
+        <div class="tags"><span class="tag veg">Vegetarian</span><span class="tag vegan">Vegan menu</span><span class="tag df">Dairy-free options</span></div>
+        <div class="foot" style="margin-top:12px"><span class="heat l1"><span class="hl">Spice</span><i></i><i></i><i></i></span></div>
+      </div>
+      <div class="food" data-diet="veg">
+        <div class="top"><h4>Bombay Sweet Shop</h4><a class="maplink" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=Bombay+Sweet+Shop+Byculla+Mumbai">Map ↗</a></div>
+        <div class="where">Byculla, mithai</div>
+        <p>Indian sweets reinvented with playful flavours and great packaging. Take a box home for the team.</p>
+        <div class="tags"><span class="tag veg">Vegetarian</span></div>
+        <div class="foot" style="margin-top:12px"><span class="heat l1"><span class="hl">Spice</span><i></i><i></i><i></i></span></div>
+      </div>
+      <div class="food" data-diet="nonveg halal">
+        <div class="top"><h4>Jaffer Bhai's Delhi Darbar</h4><a class="maplink" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=Jaffer+Bhai+Delhi+Darbar+Mumbai+Central">Map ↗</a></div>
+        <div class="where">Mumbai Central, Mughlai</div>
+        <p>Mumbai biryani royalty. The raan biryani and firni are worth the trek across town.</p>
+        <div class="tags"><span class="tag nonveg">Non-veg</span><span class="tag halal">Halal</span></div>
+        <div class="foot" style="margin-top:12px"><span class="heat l2"><span class="hl">Spice</span><i></i><i></i><i></i></span></div>
+      </div>
+      <div class="food" data-diet="nonveg halal">
+        <div class="top"><h4>Sarvi</h4><a class="maplink" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=Sarvi+restaurant+Byculla+Mumbai">Map ↗</a></div>
+        <div class="where">Byculla, kebabs</div>
+        <p>A hundred-year-old kebab house. Seekh kebab with pav is the whole point, and it costs almost nothing.</p>
+        <div class="tags"><span class="tag nonveg">Non-veg</span><span class="tag halal">Halal</span></div>
+        <div class="foot" style="margin-top:12px"><span class="heat l2"><span class="hl">Spice</span><i></i><i></i><i></i></span></div>
+      </div>
+      <div class="food" data-diet="nonveg halal">
+        <div class="top"><h4>Olympia Coffee House</h4><a class="maplink" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=Olympia+Coffee+House+Colaba+Mumbai">Map ↗</a></div>
+        <div class="where">Colaba, Irani cafe</div>
+        <p>A 1918 Irani room with marble tables and waiters in fezzes. Kheema pav for breakfast is the classic order.</p>
+        <div class="tags"><span class="tag nonveg">Non-veg</span><span class="tag halal">Halal</span></div>
+        <div class="foot" style="margin-top:12px"><span class="heat l2"><span class="hl">Spice</span><i></i><i></i><i></i></span></div>
+      </div>
+      <div class="food" data-diet="nonveg veg">
+        <div class="top"><h4>Leopold Cafe</h4><a class="maplink" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=Leopold+Cafe+Colaba+Mumbai">Map ↗</a></div>
+        <div class="where">Colaba, traveller icon</div>
+        <p>The 1871 traveller magnet of Shantaram fame. Touristy, sure, but the people-watching earns its place.</p>
+        <div class="tags"><span class="tag nonveg">Non-veg</span><span class="tag veg">Veg options</span></div>
+        <div class="foot" style="margin-top:12px"><span class="heat l1"><span class="hl">Spice</span><i></i><i></i><i></i></span></div>
+      </div>
+      <div class="food" data-diet="nonveg veg">
+        <div class="top"><h4>Ling's Pavilion</h4><a class="maplink" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=Lings+Pavilion+Colaba+Mumbai">Map ↗</a></div>
+        <div class="where">Colaba, Cantonese</div>
+        <p>Old-school Cantonese that three generations of Mumbai swear by. Go for the seafood and the retro room.</p>
+        <div class="tags"><span class="tag nonveg">Non-veg</span><span class="tag veg">Veg options</span></div>
+        <div class="foot" style="margin-top:12px"><span class="heat l1"><span class="hl">Spice</span><i></i><i></i><i></i></span></div>
+      </div>
+      <div class="food" data-diet="nonveg df">
+        <div class="top"><h4>Sindhudurg</h4><a class="maplink" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=Sindhudurg+restaurant+Dadar+Mumbai">Map ↗</a></div>
+        <div class="where">Dadar, Malvani coastal</div>
+        <p>Malvani cooking at its most honest: surmai thali, bombil fry, and solkadhi. Naturally light on dairy.</p>
+        <div class="tags"><span class="tag nonveg">Non-veg</span><span class="tag df">Dairy-free mostly</span></div>
+        <div class="foot" style="margin-top:12px"><span class="heat l3"><span class="hl">Spice</span><i></i><i></i><i></i></span></div>
+      </div>
+      <div class="food" data-diet="nonveg df">
+        <div class="top"><h4>Bastian</h4><a class="maplink" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=Bastian+Worli+Mumbai">Map ↗</a></div>
+        <div class="where">Worli, seafood</div>
+        <p>The celebrity-crowd seafood blowout. Book well ahead, bring an appetite and a budget to match.</p>
+        <div class="tags"><span class="tag nonveg">Non-veg</span><span class="tag df">Dairy-free options</span></div>
+        <div class="foot" style="margin-top:12px"><span class="heat l1"><span class="hl">Spice</span><i></i><i></i><i></i></span></div>
+      </div>
+      <div class="food" data-diet="nonveg veg df">
+        <div class="top"><h4>The Table</h4><a class="maplink" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=The+Table+Colaba+Mumbai">Map ↗</a></div>
+        <div class="where">Colaba, global small plates</div>
+        <p>One of the city's most reliable fine-dining rooms, minutes from the Gateway. Strong veg plates too.</p>
+        <div class="tags"><span class="tag nonveg">Non-veg</span><span class="tag veg">Veg options</span><span class="tag df">Dairy-free options</span></div>
         <div class="foot" style="margin-top:12px"><span class="heat l1"><span class="hl">Spice</span><i></i><i></i><i></i></span></div>
       </div>
 
@@ -1076,20 +1179,27 @@
   </div>
 </footer>
 
-<!-- Driver card (full-screen, show to your taxi or auto driver) -->
+<!-- Driver card (boarding-pass style, show to your taxi or auto driver) -->
 <div class="driver-overlay" id="driverCard" role="dialog" aria-modal="true" aria-labelledby="driverTitle">
   <div class="driver-card">
+    <div class="driver-head"><span>Devcon 8 · Mumbai</span><span>Nov 3 to 6, 2026</span></div>
     <button class="driver-close" type="button" aria-label="Close">✕</button>
-    <div class="say">Show this to your driver</div>
-    <div class="say-deva"><span lang="hi">कृपया मुझे यहाँ ले चलिए</span> · <span lang="mr">कृपया मला येथे घेऊन जा</span></div>
-    <div class="dest-latin" id="driverTitle">Jio World Convention Centre</div>
-    <div class="dest-deva" lang="hi">जियो वर्ल्ड कन्वेंशन सेंटर</div>
-    <div class="dest-addr">G Block, Bandra Kurla Complex, Bandra East, Mumbai 400051</div>
-    <div class="dest-addr-deva" lang="hi">जी ब्लॉक, बांद्रा कुर्ला कॉम्प्लेक्स, बांद्रा (पूर्व), मुंबई 400051</div>
-    <div class="driver-actions">
-      <button type="button" data-copy="Jio World Convention Centre, G Block, Bandra Kurla Complex, Bandra East, Mumbai 400051">Copy address</button>
-      <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=Jio+World+Convention+Centre+BKC+Mumbai">Open in Maps ↗</a>
-      <button type="button" data-copy="112">Copy emergency 112</button>
+    <div class="driver-body">
+      <div class="say">Show this to your driver</div>
+      <div class="say-deva"><span lang="hi">कृपया मुझे यहाँ ले चलिए</span> · <span lang="mr">कृपया मला येथे घेऊन जा</span></div>
+      <div class="dest-latin" id="driverTitle">Jio World Convention Centre</div>
+      <div class="dest-deva" lang="hi">जियो वर्ल्ड कन्वेंशन सेंटर</div>
+      <div class="dest-addr">G Block, Bandra Kurla Complex, Bandra East, Mumbai 400051</div>
+      <div class="dest-addr-deva" lang="hi">जी ब्लॉक, बांद्रा कुर्ला कॉम्प्लेक्स, बांद्रा (पूर्व), मुंबई 400051</div>
+    </div>
+    <div class="driver-tear" aria-hidden="true"></div>
+    <div class="driver-foot">
+      <div class="driver-actions">
+        <button type="button" data-copy="Jio World Convention Centre, G Block, Bandra Kurla Complex, Bandra East, Mumbai 400051">Copy address</button>
+        <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=Jio+World+Convention+Centre+BKC+Mumbai">Open in Maps ↗</a>
+        <button type="button" data-copy="112">Copy emergency 112</button>
+      </div>
+      <div class="driver-barcode" aria-hidden="true"></div>
     </div>
   </div>
 </div>
@@ -1156,6 +1266,6 @@
   <button class="a11y-reset" id="a11yReset">Reset to defaults</button>
 </div>
 
-<script src="app.js?v=9"></script>
+<script src="app.js?v=10"></script>
 </body>
 </html>
