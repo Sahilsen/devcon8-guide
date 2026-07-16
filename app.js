@@ -46,7 +46,15 @@ filterbar?.addEventListener('click', (e) => {
     const show = filter === 'all' || diets.includes(filter);
     card.classList.toggle('hide', !show);
   });
+  updateFoodCount();
 });
+function updateFoodCount() {
+  const shown = foodCards.filter((c) => !c.classList.contains('hide')).length;
+  const fc = document.getElementById('foodCount');
+  if (fc) fc.textContent = shown === foodCards.length ? `${shown} places` : `${shown} of ${foodCards.length} places`;
+  document.getElementById('foodEmpty')?.classList.toggle('show', shown === 0);
+}
+updateFoodCount();
 
 // --- Mobile nav toggle ---
 const navToggle = document.getElementById('navToggle');
@@ -254,3 +262,114 @@ window.addEventListener('scroll', () => {
 toTop?.addEventListener('click', () =>
   window.scrollTo({ top: 0, behavior: 'smooth' })
 );
+
+
+// --- Scrollspy (highlight the section you are reading in the nav) ---
+(function scrollSpy() {
+  const links = Array.from(document.querySelectorAll('.nav-links a[href^="#"]'));
+  const pairs = links
+    .map((a) => [document.getElementById(a.getAttribute('href').slice(1)), a])
+    .filter(([sec]) => sec);
+  if (!pairs.length) return;
+  let current = null;
+  let ticking = false;
+  function update() {
+    ticking = false;
+    const y = window.scrollY + 90;
+    let active = null;
+    for (const [sec, a] of pairs) { if (sec.offsetTop <= y) active = a; }
+    if (active === current) return;
+    current = active;
+    links.forEach((l) => {
+      const on = l === active;
+      l.classList.toggle('active', on);
+      if (on) l.setAttribute('aria-current', 'true'); else l.removeAttribute('aria-current');
+    });
+    // keep the active link visible in the mobile swipe strip
+    active?.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+  }
+  window.addEventListener('scroll', () => {
+    if (!ticking) { ticking = true; requestAnimationFrame(update); }
+  }, { passive: true });
+  update();
+})();
+
+// --- Pre-trip checklist (persisted per device) ---
+(function checklist() {
+  const list = document.getElementById('checklistItems');
+  if (!list) return;
+  const KEY = 'guide-checklist';
+  const boxes = Array.from(list.querySelectorAll('input[type="checkbox"]'));
+  const count = document.getElementById('checkCount');
+  let saved = {};
+  try { saved = JSON.parse(window.localStorage.getItem(KEY) || '{}'); } catch {}
+  boxes.forEach((b) => { b.checked = !!saved[b.value]; });
+  function sync() {
+    const state = {};
+    boxes.forEach((b) => {
+      if (b.checked) state[b.value] = 1;
+      b.closest('.check-item')?.classList.toggle('done', b.checked);
+    });
+    try { window.localStorage.setItem(KEY, JSON.stringify(state)); } catch {}
+    const done = boxes.filter((b) => b.checked).length;
+    if (count) count.textContent = `· ${done} of ${boxes.length} done`;
+  }
+  list.addEventListener('change', sync);
+  document.getElementById('checkReset')?.addEventListener('click', () => {
+    boxes.forEach((b) => { b.checked = false; });
+    sync();
+  });
+  sync();
+})();
+
+// --- Driver card (full-screen address card for taxi and auto drivers) ---
+(function driverCard() {
+  const overlay = document.getElementById('driverCard');
+  if (!overlay) return;
+  let lastFocus = null;
+  function openCard() {
+    lastFocus = document.activeElement;
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    overlay.querySelector('.driver-close')?.focus();
+  }
+  function closeCard() {
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+  document.querySelectorAll('[data-driver-open]').forEach((b) => b.addEventListener('click', openCard));
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay || e.target.closest('.driver-close')) closeCard();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && overlay.classList.contains('open')) closeCard();
+  });
+  overlay.querySelectorAll('[data-copy]').forEach((btn) => {
+    btn.addEventListener('click', async () => {
+      const text = btn.dataset.copy;
+      let ok = false;
+      try { await navigator.clipboard.writeText(text); ok = true; } catch {}
+      if (!ok) {
+        try {
+          const ta = document.createElement('textarea');
+          ta.value = text; ta.setAttribute('readonly', '');
+          ta.style.position = 'fixed'; ta.style.left = '-9999px';
+          document.body.appendChild(ta); ta.select();
+          ok = document.execCommand('copy'); ta.remove();
+        } catch {}
+      }
+      const orig = btn.textContent;
+      btn.textContent = ok ? 'Copied ✓' : 'Copy failed';
+      setTimeout(() => { btn.textContent = orig; }, 1600);
+    });
+  });
+})();
+
+// --- Print: expand FAQ answers so a saved PDF is complete ---
+window.addEventListener('beforeprint', () => {
+  document.querySelectorAll('.faq-item').forEach((d) => { d.dataset.wasOpen = d.open ? '1' : ''; d.open = true; });
+});
+window.addEventListener('afterprint', () => {
+  document.querySelectorAll('.faq-item').forEach((d) => { d.open = !!d.dataset.wasOpen; });
+});

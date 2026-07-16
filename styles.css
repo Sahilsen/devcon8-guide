@@ -350,3 +350,69 @@ body.hc .reading { color: #000; }
   .a11y-fab { padding: 11px 13px; font-size: 12px; }
   .totop { width: 42px; height: 42px; }
 }
+
+/* ---------- Hero quick links ---------- */
+.hero-chips { position: relative; z-index: 2; display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+.hero-chips a, .hero-chips button { font-family: var(--mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; text-decoration: none; color: var(--ink); background: var(--card); border: 1px solid var(--line-2); border-radius: 999px; padding: 8px 14px; cursor: pointer; transition: 0.14s; }
+.hero-chips a:hover, .hero-chips button:hover { border-color: var(--violet); color: var(--violet); background: var(--accent-wash); }
+
+/* ---------- Scrollspy ---------- */
+.nav-links a.active { color: var(--violet); background: var(--accent-wash); }
+
+/* ---------- Driver card ---------- */
+.driver-btn { display: inline-flex; align-items: center; gap: 9px; margin-top: 16px; background: var(--ink); color: var(--on-ink); border: 0; border-radius: 999px; padding: 12px 18px; font-family: var(--body); font-weight: 700; font-size: 14px; cursor: pointer; box-shadow: var(--shadow); transition: transform 0.14s; }
+.driver-btn:hover { transform: translateY(-1px); }
+.driver-overlay { position: fixed; inset: 0; z-index: 120; display: none; align-items: center; justify-content: center; padding: 20px; background: rgba(23,18,13,0.66); backdrop-filter: blur(6px); }
+.driver-overlay.open { display: flex; }
+.driver-card { position: relative; width: min(560px, 100%); background: var(--card); border: 1px solid var(--line-2); border-radius: 20px; padding: 34px 28px 28px; box-shadow: var(--panel-shadow); text-align: center; }
+.driver-close { position: absolute; top: 12px; right: 12px; width: 38px; height: 38px; border-radius: 50%; border: 1px solid var(--line-2); background: var(--card); color: var(--ink); cursor: pointer; font-size: 15px; }
+.driver-close:hover { border-color: var(--violet); color: var(--violet); }
+.driver-card .say { font-family: var(--mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); }
+.driver-card .say-deva { color: var(--ink-2); font-size: 15px; margin: 6px 0 16px; }
+.driver-card .dest-latin { font-family: var(--disp); font-weight: 700; font-size: clamp(22px, 4.5vw, 30px); line-height: 1.15; }
+.driver-card .dest-deva { font-size: clamp(23px, 5vw, 32px); line-height: 1.4; font-weight: 700; margin-top: 8px; }
+.driver-card .dest-addr { color: var(--ink-2); font-size: 15px; margin-top: 12px; }
+.driver-card .dest-addr-deva { color: var(--ink-2); font-size: 17px; line-height: 1.6; margin-top: 4px; }
+.driver-actions { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 22px; }
+.driver-actions a, .driver-actions button { font-family: var(--mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; text-decoration: none; color: var(--ink); background: transparent; border: 1px solid var(--line-2); border-radius: 999px; padding: 10px 16px; cursor: pointer; transition: 0.14s; }
+.driver-actions a:hover, .driver-actions button:hover { border-color: var(--violet); color: var(--violet); background: var(--accent-wash); }
+
+/* ---------- Checklist ---------- */
+.check-progress { font-family: var(--mono); font-size: 13px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--violet); white-space: nowrap; }
+.check-list { list-style: none; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 6px; }
+.check-item { display: flex; gap: 12px; align-items: flex-start; background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; cursor: pointer; box-shadow: var(--shadow); transition: 0.14s; }
+.check-item:hover { border-color: var(--violet); }
+.check-item input { width: 18px; height: 18px; margin-top: 3px; flex: 0 0 18px; accent-color: var(--violet); cursor: pointer; }
+.check-item .t { font-size: 15px; color: var(--ink-2); line-height: 1.55; }
+.check-item.done { opacity: 0.55; }
+.check-item.done .t { text-decoration: line-through; text-decoration-color: var(--muted); }
+.check-reset { margin-top: 14px; border: 0; background: transparent; color: var(--violet); font-weight: 700; font-size: 13.5px; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
+
+/* ---------- FAQ ---------- */
+.faq-list { display: flex; flex-direction: column; gap: 10px; }
+.faq-item { background: var(--card); border: 1px solid var(--line); border-radius: 14px; box-shadow: var(--shadow); }
+.faq-item summary { list-style: none; cursor: pointer; padding: 18px 22px; font-family: var(--disp); font-weight: 700; font-size: 17px; line-height: 1.35; display: flex; justify-content: space-between; align-items: center; gap: 14px; border-radius: 14px; }
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after { content: "+"; font-family: var(--mono); font-size: 19px; color: var(--violet); flex: 0 0 auto; }
+.faq-item[open] summary::after { content: "\2212"; }
+.faq-item .a { padding: 0 22px 18px; color: var(--ink-2); font-size: 15.5px; }
+
+/* ---------- Food filter count / empty state ---------- */
+.fcount { margin-left: auto; color: var(--muted); font-size: 12px; white-space: nowrap; }
+.food-empty { display: none; border: 1px dashed var(--line-2); border-radius: 16px; padding: 26px; text-align: center; color: var(--ink-2); margin-bottom: 16px; }
+.food-empty.show { display: block; }
+
+/* ---------- Print ---------- */
+@media print {
+  html, html[data-theme="dark"] { color-scheme: light; --bg: #fff; --bg-2: #fff; --card: #fff; --ink: #000; --ink-2: #222; --muted: #444; --violet: #9c3f12; --line: rgba(0,0,0,0.3); --line-2: rgba(0,0,0,0.45); --shadow: none; --shadow-hover: none; --panel-shadow: none; --nav-bg: #fff; }
+  .nav, .ticker, .landmark, .sunburst, .shape, .a11y-fab, .a11y-panel, .totop, .driver-overlay, .hero-chips, .driver-btn, .filterbar, .food-empty, .check-reset { display: none !important; }
+  body { background: #fff; }
+  section.block { padding: 22px 0; }
+  .cell, .food, .note, .route, .faq-item, .check-item, .emerg .e { box-shadow: none; break-inside: avoid; }
+  a { text-decoration: none; color: inherit; }
+}
+
+@media (max-width: 720px) {
+  .check-list { grid-template-columns: 1fr; }
+  .fcount { width: 100%; margin-left: 0; }
+}
