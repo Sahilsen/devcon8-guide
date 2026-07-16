@@ -285,8 +285,15 @@ toTop?.addEventListener('click', () =>
       l.classList.toggle('active', on);
       if (on) l.setAttribute('aria-current', 'true'); else l.removeAttribute('aria-current');
     });
-    // keep the active link visible in the mobile swipe strip
-    active?.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+    // keep the active link visible in the mobile swipe strip.
+    // Horizontal scroll on the strip only; scrollIntoView is off-limits here
+    // because it also scrolls the page, which hijacks anchor clicks and
+    // makes scrolling feel stuck.
+    const strip = document.querySelector('.nav-links');
+    if (active && strip && strip.scrollWidth > strip.clientWidth + 4) {
+      const left = active.getBoundingClientRect().left - strip.getBoundingClientRect().left + strip.scrollLeft;
+      strip.scrollTo({ left: Math.max(0, left - (strip.clientWidth - active.offsetWidth) / 2), behavior: 'smooth' });
+    }
   }
   window.addEventListener('scroll', () => {
     if (!ticking) { ticking = true; requestAnimationFrame(update); }
