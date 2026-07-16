@@ -389,3 +389,45 @@ window.addEventListener('afterprint', () => {
   document.getElementById('foodPrev')?.addEventListener('click', () => grid.scrollBy({ left: -step(), behavior: 'smooth' }));
   document.getElementById('foodNext')?.addEventListener('click', () => grid.scrollBy({ left: step(), behavior: 'smooth' }));
 })();
+
+
+// --- Night scene: street lamps on the Sea Link and monuments (lit in dark mode) ---
+(function nightScene() {
+  const NS = 'http://www.w3.org/2000/svg';
+  function addLamp(group, x, ground, height, headR) {
+    const pole = document.createElementNS(NS, 'line');
+    pole.setAttribute('class', 'lamp-pole');
+    pole.setAttribute('x1', x); pole.setAttribute('x2', x);
+    pole.setAttribute('y1', ground); pole.setAttribute('y2', ground - height);
+    const halo = document.createElementNS(NS, 'circle');
+    halo.setAttribute('class', 'lamp-halo');
+    halo.setAttribute('cx', x); halo.setAttribute('cy', ground - height - headR);
+    halo.setAttribute('r', headR * 3.2);
+    const head = document.createElementNS(NS, 'circle');
+    head.setAttribute('class', 'lamp-head');
+    head.setAttribute('cx', x); head.setAttribute('cy', ground - height - headR);
+    head.setAttribute('r', headR);
+    group.appendChild(pole); group.appendChild(halo); group.appendChild(head);
+  }
+  function lampGroup(svg) {
+    const g = document.createElementNS(NS, 'g');
+    g.setAttribute('class', 'lamps');
+    svg.appendChild(g);
+    return g;
+  }
+  // Sea Link: lamps along the deck (deck top edge sits at y=300)
+  const hero = document.querySelector('.hero .landmark');
+  if (hero) {
+    const g = lampGroup(hero);
+    [80, 230, 380, 620, 770, 920, 1160, 1310, 1460].forEach((x) => addLamp(g, x, 300, 26, 4.5));
+  }
+  // Monuments: a pair of street lamps at each one's feet
+  document.querySelectorAll('.landmark.lm-small, .landmark.lm-feature').forEach((svg) => {
+    const vb = svg.viewBox.baseVal;
+    if (!vb || !vb.width) return;
+    const g = lampGroup(svg);
+    const h = Math.max(22, vb.height * 0.08);
+    const r = Math.max(3, Math.min(4.5, vb.width * 0.02));
+    [vb.width * 0.14, vb.width * 0.86].forEach((x) => addLamp(g, x, vb.height - 4, h, r));
+  });
+})();
