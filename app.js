@@ -431,3 +431,11 @@ window.addEventListener('afterprint', () => {
     [vb.width * 0.14, vb.width * 0.86].forEach((x) => addLamp(g, x, vb.height - 4, h, r));
   });
 })();
+
+
+// --- Brand click: back to the top and clear the #section from the URL ---
+document.getElementById('brandHome')?.addEventListener('click', (e) => {
+  e.preventDefault();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  history.replaceState(null, '', window.location.pathname + window.location.search);
+});
