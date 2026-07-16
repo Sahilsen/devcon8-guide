@@ -89,8 +89,6 @@ navLinks?.addEventListener('click', (e) => {
       button.setAttribute('aria-pressed', String(isDark));
       button.setAttribute('aria-label', label);
       button.title = label;
-      const icon = button.querySelector('.theme-icon');
-      if (icon) icon.textContent = isDark ? '☀' : '☾';
     });
   }
 

@@ -30,14 +30,14 @@
   } catch {}
 })();
 </script>
-<link rel="stylesheet" href="styles.css?v=20" />
+<link rel="stylesheet" href="styles.css?v=21" />
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
 <!-- water-ripple filter for the Marathi title shadow -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <filter id="water">
+  <filter id="waterRipple">
     <feTurbulence type="fractalNoise" baseFrequency="0.011 0.035" numOctaves="2" seed="4" result="n">
       <animate attributeName="baseFrequency" dur="7s" values="0.011 0.03;0.015 0.05;0.011 0.03" repeatCount="indefinite"/>
     </feTurbulence>
@@ -50,6 +50,7 @@
   <div class="wrap nav-inner">
     <div class="brand"><span class="dc">Devcon 8 India</span><span class="sep">/</span><span class="pl">Mumbai Field Guide</span></div>
     <nav class="nav-links" id="navLinks" aria-label="Primary">
+      <a href="#visa">Visa</a>
       <a href="#getting">Transit</a>
       <a href="#stay">Hotels</a>
       <a href="#food">Food</a>
@@ -61,10 +62,11 @@
       <a href="#know">Know</a>
     </nav>
     <div class="nav-actions">
-      <button class="theme-toggle" id="themeToggle" type="button" data-theme-toggle aria-label="Switch to dark mode" aria-pressed="false">
-        <span class="theme-icon" aria-hidden="true">☾</span>
-      </button>
       <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">Menu</button>
+      <button class="theme-toggle" id="themeToggle" type="button" data-theme-toggle aria-label="Switch to dark mode" aria-pressed="false">
+        <svg class="theme-icon icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.4 14.2A8.6 8.6 0 0 1 9.8 3.6a8.6 8.6 0 1 0 10.6 10.6Z"/></svg>
+        <svg class="theme-icon icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><line x1="12" y1="2.5" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="21.5"/><line x1="2.5" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="21.5" y2="12"/><line x1="5.3" y1="5.3" x2="7" y2="7"/><line x1="17" y1="17" x2="18.7" y2="18.7"/><line x1="18.7" y1="5.3" x2="17" y2="7"/><line x1="7" y1="17" x2="5.3" y2="18.7"/></svg>
+      </button>
     </div>
   </div>
 </header>
@@ -112,7 +114,37 @@
   </div>
 </section>
 
-<!-- 01 GETTING THERE -->
+<!-- 01 VISA & ENTRY -->
+<section class="block" id="visa">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-index">01</div>
+      <div>
+        <div class="kicker"><span class="kic-ico" aria-hidden="true">🛂</span>Sort this before anything else</div>
+        <h2>Visa and entry</h2>
+        <p class="lead">Most foreign nationals need a visa to enter India, and processing takes time. Start here before you book flights and hotels, and use only the official government portal.</p>
+      </div>
+    </div>
+
+    <div class="grid g3">
+      <div class="cell"><div class="top"><h3>Apply for an e-Visa</h3><a class="maplink" target="_blank" rel="noopener" href="https://indianvisaonline.gov.in/evisa/tvoa.html">e-Visa portal ↗</a></div><p>The official <b>e-Visa</b> is the usual route for most nationalities. Apply on the <a class="maplink" target="_blank" rel="noopener" href="https://indianvisaonline.gov.in/">government portal ↗</a> well ahead of travel, and watch for any conference or business visa guidance the Devcon team publishes.</p></div>
+      <div class="cell"><div class="top"><h3>Ticket confirmation letter</h3><span class="tier">Visa support</span></div><p>Devcon can issue a letter to support your visa application, but you need a <b>confirmed Devcon 8 ticket</b> first. Request it <b>at least 90 days before the event</b>; requests made under two weeks out are best effort only. Double-check every detail before submitting, since incomplete info causes delays. Questions: <a class="maplink" href="mailto:visa@devcon.org">visa@devcon.org</a>.</p></div>
+      <div class="cell"><div class="top"><h3>If the letter is not accepted</h3><span class="tier">Plan B</span></div><p>The letter supports your application; it does not guarantee a visa. If it is not accepted, review your eligibility and explore other applicable visa categories on <a class="maplink" target="_blank" rel="noopener" href="https://indianvisaonline.gov.in/">India's official visa portal ↗</a> for the latest requirements.</p></div>
+    </div>
+
+    <div class="note warn" style="margin-top:24px">
+      <span class="lbl">Timing and safety</span>
+      <h3>Apply early, and only on the official site</h3>
+      <ul>
+        <li>e-Visa processing is usually quick, but event-season demand and small errors add time. Apply <b>weeks ahead</b>, not days.</li>
+        <li>Request the ticket confirmation letter <b>90 days out</b> so a correction or appointment never becomes a fire drill.</li>
+        <li>Third-party "visa agent" sites charge markups and are a common scam. The official portal is <b>indianvisaonline.gov.in</b>, nothing else.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 02 GETTING THERE -->
 <section class="block" id="getting">
   <!-- Bandra-Worli Sea Link -->
   <svg class="landmark lm-small lm-r" viewBox="0 0 200 150" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true" stroke-width="2.6">
@@ -124,7 +156,7 @@
   </svg>
   <div class="wrap">
     <div class="sec-head">
-      <div class="sec-index">01</div>
+      <div class="sec-index">02</div>
       <div>
         <div class="kicker"><span class="kic-ico" aria-hidden="true">🚆</span>Getting to the venue</div>
         <h2>Reaching Jio World, BKC</h2>
@@ -176,7 +208,7 @@
   </div>
 </section>
 
-<!-- 02 HOTELS -->
+<!-- 03 HOTELS -->
 <section class="block" id="stay">
   <!-- Taj Mahal Palace Hotel -->
   <svg class="landmark lm-feature lm-r" viewBox="0 0 420 360" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true">
@@ -192,7 +224,7 @@
   </svg>
   <div class="wrap">
     <div class="sec-head">
-      <div class="sec-index">02</div>
+      <div class="sec-index">03</div>
       <div>
         <div class="kicker"><span class="kic-ico" aria-hidden="true">🏨</span>Where to stay</div>
         <h2>Hotels, near to far</h2>
@@ -253,7 +285,7 @@
   </div>
 </section>
 
-<!-- 03 FOOD -->
+<!-- 04 FOOD -->
 <section class="block" id="food">
   <!-- Gateway of India -->
   <svg class="landmark lm-feature lm-l" viewBox="0 0 360 380" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true">
@@ -273,7 +305,7 @@
   </svg>
   <div class="wrap">
     <div class="sec-head">
-      <div class="sec-index">03</div>
+      <div class="sec-index">04</div>
       <div>
         <div class="kicker"><span class="kic-ico" aria-hidden="true">🍽️</span>Eat well, any diet</div>
         <h2>Food, by what you can eat</h2>
@@ -552,11 +584,11 @@
   </div>
 </section>
 
-<!-- 04 WATER & HEALTH -->
+<!-- 05 WATER & HEALTH -->
 <section class="block" id="water">
   <div class="wrap">
     <div class="sec-head">
-      <div class="sec-index">04</div>
+      <div class="sec-index">05</div>
       <div>
         <div class="kicker"><span class="kic-ico" aria-hidden="true">💧</span>Stay healthy</div>
         <h2>Water and health</h2>
@@ -611,11 +643,11 @@
   </div>
 </section>
 
-<!-- 05 SIM & MONEY -->
+<!-- 06 SIM & MONEY -->
 <section class="block" id="sim">
   <div class="wrap">
     <div class="sec-head">
-      <div class="sec-index">05</div>
+      <div class="sec-index">06</div>
       <div>
         <div class="kicker"><span class="kic-ico" aria-hidden="true">📶</span>Connectivity and money</div>
         <h2>SIM, data and paying</h2>
@@ -653,7 +685,7 @@
   </div>
 </section>
 
-<!-- 06 THINGS TO DO -->
+<!-- 07 THINGS TO DO -->
 <section class="block" id="see">
   <!-- Imperial twin towers -->
   <svg class="landmark lm-small lm-l" viewBox="0 0 200 380" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true">
@@ -665,7 +697,7 @@
   </svg>
   <div class="wrap">
     <div class="sec-head">
-      <div class="sec-index">06</div>
+      <div class="sec-index">07</div>
       <div>
         <div class="kicker"><span class="kic-ico" aria-hidden="true">🗺️</span>Beyond the venue</div>
         <h2>What to see and do</h2>
@@ -710,7 +742,7 @@
   </div>
 </section>
 
-<!-- 07 WEB3 / BUILDERS -->
+<!-- 08 WEB3 / BUILDERS -->
 <section class="block" id="builders">
   <!-- Municipal (BMC) building -->
   <svg class="landmark lm-small lm-r" viewBox="0 0 230 360" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true">
@@ -724,7 +756,7 @@
   </svg>
   <div class="wrap">
     <div class="sec-head">
-      <div class="sec-index">07</div>
+      <div class="sec-index">08</div>
       <div>
         <div class="kicker"><span class="kic-ico" aria-hidden="true">🛠️</span>For builders</div>
         <h2>Web3 in India</h2>
@@ -756,7 +788,7 @@
   </div>
 </section>
 
-<!-- 08 STREET SMART -->
+<!-- 09 STREET SMART -->
 <section class="block" id="street">
   <!-- Rajabai Clock Tower -->
   <svg class="landmark lm-small lm-l" viewBox="0 0 120 380" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true">
@@ -769,7 +801,7 @@
   </svg>
   <div class="wrap">
     <div class="sec-head">
-      <div class="sec-index">08</div>
+      <div class="sec-index">09</div>
       <div>
         <div class="kicker"><span class="kic-ico" aria-hidden="true">🛡️</span>Stay safe and smart</div>
         <h2>Street smarts</h2>
@@ -822,11 +854,11 @@
   </div>
 </section>
 
-<!-- 09 GOOD TO KNOW -->
+<!-- 10 GOOD TO KNOW -->
 <section class="block" id="know">
   <div class="wrap">
     <div class="sec-head">
-      <div class="sec-index">09</div>
+      <div class="sec-index">10</div>
       <div>
         <div class="kicker"><span class="kic-ico" aria-hidden="true">💡</span>Other things to keep in mind</div>
         <h2>Good to know</h2>
@@ -835,8 +867,7 @@
     </div>
 
     <div class="grid g3">
-      <div class="cell"><div class="top"><h3>Visa and entry</h3><a class="maplink" target="_blank" rel="noopener" href="https://indianvisaonline.gov.in/">Official portal ↗</a></div><p>Most foreign nationals need a visa. The official <b>e-Visa</b> is the usual route, so apply on the <a class="maplink" target="_blank" rel="noopener" href="https://indianvisaonline.gov.in/evisa/tvoa.html">government e-Visa portal ↗</a> well ahead of travel. Apply only through the official site, and watch for any conference or business visa guidance the Devcon team publishes.</p></div>
-      <div class="cell"><div class="top"><h3>Ticket confirmation letter</h3><span class="tier">Visa support</span></div><p>Devcon can issue a letter to support your visa application, but you need a <b>confirmed Devcon 8 ticket</b> first. Request it <b>at least 90 days before the event</b>; requests made under two weeks out are best effort only. Double-check every detail before submitting, since incomplete info causes delays. Questions: <a class="maplink" href="mailto:visa@devcon.org">visa@devcon.org</a>.</p><p style="margin-top:8px">If the letter is not accepted, review your eligibility and check other visa categories on <a class="maplink" target="_blank" rel="noopener" href="https://indianvisaonline.gov.in/">India's official visa portal ↗</a>. The letter supports your application; it does not guarantee a visa.</p></div>
+      <div class="cell"><div class="top"><h3>Visa and entry</h3><a class="maplink" href="#visa">See section 01 ↗</a></div><p>Most foreign nationals need a visa, and Devcon can issue a ticket confirmation letter to support your application. Full details, timelines, and official links are in the <a class="maplink" href="#visa">Visa and entry section</a> at the top of this guide.</p></div>
       <div class="cell"><div class="top"><h3>Weather in November</h3><span class="tier">Post-monsoon</span></div><p>Warm and a little humid, roughly <b>22 to 33°C (72 to 91°F)</b>, and mostly dry. Pack light breathable clothes, sunscreen, and a thin layer for over air-conditioned venues.</p></div>
       <div class="cell"><div class="top"><h3>Time zone</h3><span class="tier">IST</span></div><p><b>UTC plus 5:30</b>, yes the half hour, and no daylight saving. Plan calls home accordingly.</p></div>
       <div class="cell"><div class="top"><h3>Language</h3><span class="tier">English works</span></div><p>English is widely spoken in business and hospitality. Hindi and Marathi are local. A namaste, a dhanyavaad (thanks), and a smile go far.</p></div>
@@ -951,6 +982,6 @@
   <button class="a11y-reset" id="a11yReset">Reset to defaults</button>
 </div>
 
-<script src="app.js?v=6"></script>
+<script src="app.js?v=7"></script>
 </body>
 </html>
