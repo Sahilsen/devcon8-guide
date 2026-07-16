@@ -140,7 +140,7 @@ body.hc .landmark { display: none; }
 .brand .dc { color: var(--violet); }
 .brand .sep { color: var(--line-2); }
 .brand .pl { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
-.nav-links { margin-left: auto; display: flex; gap: 14px; flex-wrap: wrap; }
+.nav-links { margin-inline: auto; display: flex; gap: 14px; flex-wrap: wrap; }
 .nav-links a { position: relative; font-family: var(--mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.03em; text-decoration: none; padding: 9px 9px; border-radius: 8px; color: var(--ink-2); transition: 0.14s; }
 .nav-links a + a::before { content: "/"; position: absolute; left: -10px; top: 50%; transform: translateY(-50%); font-size: 11px; color: var(--muted); opacity: 0.5; pointer-events: none; }
 .nav-links a:hover { color: var(--violet); background: var(--accent-wash); }
